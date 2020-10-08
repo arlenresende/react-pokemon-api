@@ -1,0 +1,342 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+// Medidas
+
+$mobile: 767px;
+$tabletW: 900px;
+$tablet: 1024px;
+$netbook: 1199px;
+$notebook: 1500px;
+$monitor: 1820px;
+
+
+/* Media Querys */
+
+  
+  @mixin monitor {
+    @media (max-width: #{$monitor}) {
+      @content;
+    }
+  }
+  
+  @mixin notebook {
+    @media (max-width: #{$notebook}) {
+      @content;
+    }
+  }
+  @mixin netbook {
+    @media (max-width: #{$netbook}){
+      @content;
+    }
+  }
+  
+  @mixin tabletW {
+     @media (max-width: #{$tabletW}) {
+      @content;
+    }
+  }
+  
+  @mixin tablet {
+     @media (max-width: #{$tablet}) {
+      @content;
+    }
+  }
+  
+  @mixin mobile {
+    @media (max-width: #{$mobile}) {
+      @content;
+    }
+  }
+
+
+  
+
+// animações 
+
+@-webkit-keyframes rotate {
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+#refresh {
+    width:48px;
+    height:48px;
+    background:url(http://icdn.pro/images/en/g/t/gtk-refresh-icone-4774-48.png);
+    -webkit-animation: rotate 3s linear infinite;
+}
+
+
+header{
+    background-color: #d1ecfa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 1rem  2rem;
+
+    nav {
+        a{
+           
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 2rem;
+            margin-left: 2rem;
+        }    
+    }
+    .pokebola{
+        height: 40px;
+        width: 40px;
+       
+    }
+}
+
+.search-wrapper{
+    width: 30%;
+    margin: 5rem auto;
+    @include netbook{
+        width: 50%;
+    }
+    @include tablet{
+        width: 80%;
+    }
+    @include mobile{
+        width: 95%;
+    }
+    h2{
+        color: #f34444;
+        font-weight: 700;
+        font-size: 2rem;
+        text-align: center;
+        text-transform: uppercase;
+        opacity: 0.5;
+        margin-bottom: 2rem;
+    }
+    .input-wrapper{
+        position: relative;
+        input[type="text"] {
+            height: 40px;
+            font-size: 1rem;
+            display: inline-block;
+            font-weight: 500;
+            border: none;
+            outline: none;
+            color: #000;
+            padding: 3px;
+            padding-right: 60px;
+            width: 0px;
+            position: relative;
+            cursor: pointer;
+            width: 100%;
+            border-bottom: 2px solid #ddd;
+          
+        }
+        button{
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #d1ecfa;
+            color: #ffffff;
+            font-weight: 700;
+            border: none;
+            padding: 0.3rem 1rem;
+            font-size: 1.5rem;
+            @include mobile{
+                position: relative;
+                top: 10px;
+                width: 100%;
+            }
+        }
+    }
+    
+    
+   
+}
+
+.pokemon-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	/*Both these lines are only useful for the loader*/
+	height: 100%;
+    align-items: center;
+    svg{
+        
+        position: absolute;
+        fill: #f34444;
+        opacity: 0.5;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        width: 78%;
+        left: 12%;
+        top: 57%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        z-index: -1;
+        @include tablet(){
+           display: none;
+        }
+
+    }
+    a{
+        
+        height: 400px;
+        width: 15%;
+        display: flex;
+        flex-direction: column;
+        @include notebook{
+            width: 25%;
+        }
+        @include netbook{
+            width: 30%;
+        }
+        @include tablet{
+            width: 50%;
+            height: 460px;
+        }
+        @include mobile{
+            width: 100%;
+            margin-bottom: 3rem;
+
+        }
+        .pokemon-card {
+            position: relative;
+            z-index: -2;
+            margin: 20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 0;
+            align-items: center;
+            box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+            border-radius: 20px;
+            img{
+                width: 50%;
+                margin-top: 3.5rem;
+            }
+        }
+        .title{
+            font-size: 2rem;
+            color: #f34444;
+            opacity: 0.8;
+            text-transform: capitalize;
+        }
+            &:hover{
+                .pokemon-card {
+                    background-color:rgba(243,69,69,0.5);
+                  
+                }
+                .title{
+                    color: #ffffff;
+                }
+
+            }
+       
+    }
+   
+    
+}
+
+.pokemon-page{
+    h1{
+        text-align: center;
+        font-size: 4rem;
+        display: block;
+        padding: 5rem 0;
+        color: #f34444;
+        opacity: 0.8;
+        text-transform: capitalize;
+    
+       
+    }
+    h2{
+        text-align: left;
+        font-size: 2rem;
+        display: block;
+        padding: 3rem 0;
+        color: #f34444;
+        opacity: 0.8;
+        text-transform: capitalize;
+    }
+    .page{
+        height: 100vh;
+        background-position: bottom right;
+       
+        background-repeat: no-repeat;
+        width: 100%;
+        @include netbook{
+            background: none!important;
+        }
+    
+        .page-wrapper{
+            width: 60%;
+            margin: 0 auto;
+            .item{
+                width: 50%;
+                float: left;
+                min-height: 300px;
+                @include netbook{
+                    width: 100%;
+                    min-height: auto;
+                }
+                p{
+                    font-size: 1.3rem;
+                    span{
+                        font-weight: 700;
+                        color: #f34444;
+                    }
+                }
+            }
+        }
+    }
+   
+}
+
+
+
+.pagination {
+    width: 50%;
+    display: flex;
+    margin: 2rem auto;
+    list-style: none;
+    justify-content: center;
+    padding: 0;
+    align-items: center;
+    justify-items: center;
+    @include mobile{
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    li{
+        margin: 0 1rem;
+        a{
+            color: #bad6e4;
+            font-size: 2rem;
+            cursor: pointer;
+            &:focus{
+                border: none;
+                outline: none;
+             }
+        }
+        &.selected{
+            a{
+                color: #f9a1a1;
+                &:focus{
+                    border: none;
+                    outline: none;
+                 }
+            }
+           
+        }
+       
+    }
+
+}
