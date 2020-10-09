@@ -27,7 +27,7 @@ const Pokemon = (props) => {
 
                 
                 <div className="page" style={divStyle}>
-                    <div className="page-wrapper">
+                    <div className="page-wrapper " id={pokeData.types[0].type.name} >
                         <div className="item">
                             <h2>Sprites</h2>
                             <img src={pokeData.sprites.front_default} alt=""/>
@@ -55,6 +55,8 @@ const Pokemon = (props) => {
                                 return <p>{el.ability.name} </p>
                             })}
                         </div>
+
+                      
                         
                     </div>
                    
@@ -69,7 +71,7 @@ const Pokemon = (props) => {
         if(PokemonState.errorMsg !== ""){
             return <p>{PokemonState.errorMsg }</p>
          }
-         return <p>Não foi possivel carregar o pokemon</p>
+         return <p className="not">Não foi possivel carregar o pokemon</p>
     }
 
 

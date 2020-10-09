@@ -148,6 +148,7 @@ header{
             border: none;
             padding: 0.3rem 1rem;
             font-size: 1.5rem;
+            cursor: pointer;
             @include mobile{
                 position: relative;
                 top: 10px;
@@ -246,6 +247,9 @@ header{
 }
 
 .pokemon-page{
+    .not{
+        text-align: center;
+    }
     h1{
         text-align: center;
         font-size: 4rem;
@@ -254,6 +258,9 @@ header{
         color: #f34444;
         opacity: 0.8;
         text-transform: capitalize;
+        @include mobile{
+            font-size: 3rem;
+        }
     
        
     }
@@ -262,14 +269,14 @@ header{
         font-size: 2rem;
         display: block;
         padding: 3rem 0;
-        color: #f34444;
+        color: #ffffff;
         opacity: 0.8;
         text-transform: capitalize;
     }
     .page{
         height: 100vh;
         background-position: bottom right;
-       
+        background-size: 30%;
         background-repeat: no-repeat;
         width: 100%;
         @include netbook{
@@ -279,13 +286,19 @@ header{
         .page-wrapper{
             width: 60%;
             margin: 0 auto;
+          
+            display: flex;
+            flex-wrap: wrap;
+            padding: 3rem 5rem;
+            opacity: 0.9;
+            @include  mobile{
+                padding: 1rem;
+                width: 100%;
+            }
             .item{
-                width: 50%;
-                float: left;
-                min-height: 300px;
+                flex-basis: 50%;
                 @include netbook{
-                    width: 100%;
-                    min-height: auto;
+                    flex-basis: 100%;
                 }
                 p{
                     font-size: 1.3rem;
@@ -295,7 +308,23 @@ header{
                     }
                 }
             }
-        }
+            &#grass { background : #d2f2c2}
+            &#poison { background : #f7cdf7}
+            &#fire { background : #ffd1b5}
+            &#flying { background : #eae3ff}
+            &#water { background : #c2f3ff}
+            &#bug { background :  #e0e8a2}
+            &#normal { background : #e6e6c3}
+            &#electric { background : #fff1ba}
+            &#ground { background : #e0ccb1}
+            &#fighting { background : #fcada9}
+            &#psychic { background : #ffc9da}
+            &#rock { background : #ffdee5}
+            &#steel { background : #e6eaf0}
+            &#ice { background : #e8feff}
+            &#ghost { background : #dbbaff}
+            &#dragon { background : #c4bdff}
+            &#dark { background : #a9abb0}        }
     }
    
 }
